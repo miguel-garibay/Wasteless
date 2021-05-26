@@ -1,5 +1,5 @@
 import { React } from 'react';
-import {configure, shallow, mount } from 'enzyme';
+import {configure, shallow } from 'enzyme';
 import DisposedList from '../components/DisposedList'
 // import DisposedItem from '../components/DisposedItem'
 import { Food } from '../server/FoodModel'
@@ -30,7 +30,7 @@ describe('React unit tests', () => {
            expect(wrapper.find()).toEqual('h3')
         })
         it('Checking if h3 works with .type or if .type only works with outer wrapper. Pass=yes, fail=only wrap', ()=>{
-           expect(wrapper.type()).toEqual('h3');
+         expect(wrapper.type()).toEqual('h3');
       })
       
     //   afterAll(async done => {
@@ -44,9 +44,6 @@ describe('React unit tests', () => {
     // describe('DisposedList', () => {
 
     //   let wrapper;
-      
-
-
 //     })
 
 
