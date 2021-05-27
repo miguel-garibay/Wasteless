@@ -4,6 +4,14 @@ const FoodController = {};
 FoodController.getFood = (req, res, next) => {
   models.Food.find({ status: 'to buy' })
     .then((data) => {
+      if (data[0] === undefined) {
+        return next({
+          log: `Food.getFood: ERROR`,
+          message: {
+            err: 'Error occurred in Food.getFood. Check server logs for more details.',
+          },
+        })
+      }
       res.locals.food = data;
       return next();
     })
@@ -48,7 +56,7 @@ FoodController.addFood = (req, res, next) => {
 
 FoodController.deleteFood = (req, res, next) => {
   // gets all info/data from the one food item
-  models.Food.deleteOne({ item: req.params.item }).catch((err) =>
+  models.Food.deleteOne({ item: req.params.item }).then(()=> {return next()}).catch((err) =>
     next({
       log: `Food.deleteFood: ERROR: ${err}`,
       message: {
@@ -72,7 +80,11 @@ FoodController.updateFoodName = (req, res, next) => {
 
 // update status to purchased
 FoodController.updateFoodStatus = (req, res, next) => {
-  models.Food.findOneAndUpdate({ item: req.params.item }, { $set: { status: 'purchased' } }).catch(
+  models.Food.findOneAndUpdate({ item: req.params.item }, { $set: { status: 'purchased' } })
+  .then(() => {
+    return next()
+  })
+  .catch(
     (err) =>
       next({
         log: `Food.updateFoodStatus: ERROR: ${err}`,
