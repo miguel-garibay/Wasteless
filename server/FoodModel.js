@@ -1,13 +1,8 @@
 const mongoose = require('mongoose');
 
-<<<<<<< HEAD
-const MONGO_URI =
-  'mongodb+srv://miguelg:codesmith@cluster0.qtvtv.mongodb.net/wastelessv2?retryWrites=true&w=majority';
-=======
 const MONGO_URI = 'mongodb+srv://miguelg:codesmith@cluster0.qtvtv.mongodb.net/wastelessv2?retryWrites=true&w=majority';
 
 // 'mongodb+srv://eileenlee115:codesmith@cluster0.jviqy.mongodb.net/scratch-project?retryWrites=true&w=majority';
->>>>>>> 5d113a6072a0febbd2499ac3f92e6ee6bd70472e
 
 mongoose
   .connect(MONGO_URI, {

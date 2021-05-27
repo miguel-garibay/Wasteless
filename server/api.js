@@ -1,6 +1,7 @@
 const express = require('express');
 
 const FoodController = require('./FoodController');
+const userController = require('./userController');
 
 const router = express.Router();
 // get all food
@@ -71,6 +72,12 @@ router.put('/food/disposed/:item', FoodController.updateDisposed, (req, res) =>
 // get all disposed items
 router.get('/disposed', FoodController.getDisposedFood, (req, res) => {
   res.status(200).json(res.locals.disposed);
+});
+
+//  cookieController.setSSIDCookie,sessionController.startSession, will be tested after login verification
+router.post('/login', userController.verifyUser, (req, res) => {
+  // what should happen here on successful log in?
+  res.redirect('../index.html');
 });
 
 module.exports = router;
