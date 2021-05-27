@@ -29,14 +29,16 @@ function DisposedList(props) {
 
     const disposedListArray = [];
     for (let i = 0; i < currState?.listOfDisposedItemNames.length; i++) {
-        console.log('dispoed loop occured' + i);
+        console.log('disposed loop occured' + i);
         disposedListArray.push(
             <DisposedItem
                 itemName={currState?.listOfDisposedItemNames[i]}
                 key={i}
+                type={currState?.listOfItems[i].type}
                 id={i + 1}
                 foodId={currState?.listOfDisposedItemNames[i]}
                 setState={setState}
+                quantity={currState?.listOfItems[i].quantity}
             />
         );
     }
