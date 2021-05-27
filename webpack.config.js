@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: ['babel-polyfill','./client/index.js'],
+  entry: ['./client/index.js'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),

@@ -5,6 +5,7 @@ const userController = require('./userController');
 const apiRouter = require('./api');
 const cookieController = require('./cookieController');
 const sessionController = require('./sessionController');
+const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -13,10 +14,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/build', express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
 
-// landing page to login
-app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/login.html')));
+// run the cookie parser
+app.use(cookieParser());
 
-// app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/login.html')));
+// landing page redirect to login or serve index if cookie exists
+app.get('/', cookieController.hasCookie, (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../index.html')));
+
 // direct to index if login is valid
 app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession, (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../index.html'));

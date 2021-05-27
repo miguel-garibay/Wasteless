@@ -11,7 +11,7 @@ sessionController.isLoggedIn = (req, res, next) => {
   Session.find({cookieId: res.locals.ssid}, (err, data) => {
     if (err) next(err);
     if (data.length === 0) {
-      res.redirect('/signup');
+      return res.redirect('/signup');
     } else {
       // console.log(data);
       // console.log(data[0]._id);

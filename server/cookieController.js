@@ -1,4 +1,6 @@
 const cookieController = {};
+const cookieParser = require('cookie-parser')
+const Session = require('./SessionModel');
 
 /**
 * setCookie - set a cookie with a random number
@@ -22,5 +24,19 @@ cookieController.setSSIDCookie = (req, res, next) => {
   })
   next();
 }
+
+// checks if client has cookie/session id already exists in local storage
+cookieController.hasCookie = (req, res, next) => {
+    console.log('hitting CookieController?')
+    Session.find({cookieId: req.cookies.ssid}, (err, data) => {
+      if (err) next(err);
+      if (data.length === 0) {
+        return res.redirect('/login');
+      } else {
+        return next();
+      }
+    });
+  };
+
 
 module.exports = cookieController;
