@@ -13,7 +13,7 @@ function App() {
       <SideNavBar />
 
       <Switch>
-        <Route component={CurrentList} exact path="/" />
+        <Route component={CurrentList} exact path="/tobuy" />
         <Route component={PurchasedList} exact path="/purchased" />
         <Route component={EatenList} exact path="/eaten" />
         <Route component={DisposedList} exact path="/disposed" />

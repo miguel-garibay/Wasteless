@@ -5,7 +5,7 @@ function SideNavBar() {
   return (
     <div className="nav">
       <h3>Navigation</h3>
-      <NavLink to="/" className="link" activeClassName="active" exact>
+      <NavLink to="/tobuy" className="link" activeClassName="active" exact>
         {' '}
         <p> To Buy</p>{' '}
       </NavLink>

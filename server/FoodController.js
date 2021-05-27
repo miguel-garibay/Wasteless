@@ -222,4 +222,8 @@ FoodController.getDisposedFood = (req, res, next) => {
     );
 };
 
+//create new user entry
+
+//
+
 module.exports = FoodController;
