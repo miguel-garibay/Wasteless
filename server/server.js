@@ -31,6 +31,6 @@ app.use((err, req, res, next) => {
   next();
 });
 
-// app.listen(3001); 
+app.listen(3000); 
 // listens on port 3000 -> http://localhost:3000/
-module.exports = app;
+// module.exports = app;
