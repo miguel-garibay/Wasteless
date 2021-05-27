@@ -1,10 +1,10 @@
 // Uncomment below prior to testing
 
-const app = require('../server/server.js');
-const supertest = require('supertest');
-const request = supertest(app);
-const mongoose = require('mongoose');
-const MONGO_URI = 'mongodb+srv://miguelg:codesmith@cluster0.qtvtv.mongodb.net/wastelessv2?retryWrites=true&w=majority';
+// const app = require('../server/server.js');
+// const supertest = require('supertest');
+// const request = supertest(app);
+// const mongoose = require('mongoose');
+// const MONGO_URI = 'mongodb+srv://miguelg:codesmith@cluster0.qtvtv.mongodb.net/wastelessv2?retryWrites=true&w=majority';
 
 
   describe('Route integration', () => {

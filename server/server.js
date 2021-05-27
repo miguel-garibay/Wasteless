@@ -1,16 +1,42 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-
+const userController = require('./userController');
 const apiRouter = require('./api');
-
+const cookieController = require('./cookieController');
+const sessionController = require('./sessionController');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
+
+// landing page to login
 app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/login.html')));
+
+// app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/login.html')));
+// direct to index if login is valid
+app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession, (req, res) => {
+  res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
+});
+
+// directs you to login page 
+app.get('/login', (req, res) => {
+  res.status(200).sendFile(path.resolve(__dirname, '../client/login.html'));
+});
+
+// directs you to signup page
+app.get('/signup', (req,res) => {
+  res.status(200).sendFile(path.resolve(__dirname, '../client/signup.html'));
+})
+
+// signup sends user input to database then directs to login page
+app.post('/signup', userController.createUser, (req, res) => {
+  // what should happen here on successful log in?
+  res.status(200).sendFile(path.resolve(__dirname, '../client/login.html'));
+});
 
 app.use('/api', apiRouter);
 
@@ -30,6 +56,6 @@ app.use((err, req, res, next) => {
   next();
 });
 
-// app.listen(3001); 
+app.listen(3000); 
 // listens on port 3000 -> http://localhost:3000/
-module.exports = app;
+// module.exports = app;

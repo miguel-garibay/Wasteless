@@ -23,7 +23,6 @@ userController.getAllUsers = (req, res, next) => {
 */
 userController.createUser = (req, res, next) => {
  
-  
   User.create(req.body)
     .then((data)=> {
       console.log('New user data: ', data);
@@ -45,8 +44,9 @@ userController.createUser = (req, res, next) => {
 */
 userController.verifyUser = (req, res, next) => {
   // write code here
+  const { username, password } = req.body;
  
-  User.find({username: req.body.username, password: req.body.password}, (err, data) => {
+  User.find({username: username, password: password}, (err, data) => {
     if (err) next(err);
     if (data.length === 0) {
       res.redirect('../login');
@@ -58,5 +58,7 @@ userController.verifyUser = (req, res, next) => {
     }
   });
 };
+
+
 
 module.exports = userController;
