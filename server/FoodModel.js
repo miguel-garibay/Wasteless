@@ -27,8 +27,15 @@ const foodSchema = new Schema({
   outcome: { type: String, default: ''},
 });
 
+const userSchema = new Schema({
+  email: { type: String, default: '', required: true, unique: true },
+  password: { type: String, default: '', required: true },
+});
+
+const User = mongoose.model('user', userSchema,'users');
 const Food = mongoose.model('food', foodSchema,'food');
 
 module.exports = {
   Food,
+  User,
 };

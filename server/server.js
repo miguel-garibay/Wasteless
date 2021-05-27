@@ -1,17 +1,35 @@
 const express = require('express');
-
 const app = express();
 const path = require('path');
-
+const userController = require('./userController');
 const apiRouter = require('./api');
-
+const cookieController = require('./cookieController');
+const sessionController = require('./sessionController');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
-app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../index.html')));
+app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/login.html')));
+// app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/signup.html')));
+
+app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession, (req, res) => {
+  // what should happen here on successful log in?
+  res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
+});
+
+app.get('/signup', (req,res) => {
+  res.status(200).sendFile(path.resolve(__dirname, '../client/signup.html'));
+})
+
+app.post('/signup', userController.createUser, (req, res) => {
+  // what should happen here on successful log in?
+  res.status(200).sendFile(path.resolve(__dirname, '../client/login.html'));
+});
+
+//  will be tested after login verification
 
 app.use('/api', apiRouter);
 

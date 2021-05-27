@@ -1,8 +1,12 @@
 const express = require('express');
+const path = require('path');
 
 const FoodController = require('./FoodController');
+const userController = require('./userController');
 
 const router = express.Router();
+
+
 // get all food
 router.get('/', FoodController.getFood, (req, res) => {
   // sends data to frontend
