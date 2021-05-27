@@ -8,7 +8,7 @@
 
 h1, h3 {
   text-align: center;
-  color: #121113;
+  color: #d121113;
 
 }
 
@@ -141,7 +141,6 @@ body {
 .toBuyListBtn:hover, .purchasedListBtn:hover, .eatenListBtn:hover{
   background-color: #6b705c;
 }
-
 
 .toBuyListBtnContainer, .purchasedListBtnContainer, .eatenListBtnContainer{
   float: right;
