@@ -4,6 +4,14 @@ const FoodController = {};
 FoodController.getFood = (req, res, next) => {
   models.Food.find({ status: 'to buy' })
     .then((data) => {
+      if (data[0] === undefined) {
+        return next({
+          log: `Food.getFood: ERROR`,
+          message: {
+            err: 'Error occurred in Food.getFood. Check server logs for more details.',
+          },
+        })
+      }
       res.locals.food = data;
       return next();
     })

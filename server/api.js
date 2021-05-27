@@ -77,4 +77,10 @@ router.get('/disposed', FoodController.getDisposedFood, (req, res) => {
   res.status(200).json(res.locals.disposed);
 });
 
+//  cookieController.setSSIDCookie,sessionController.startSession, will be tested after login verification
+router.post('/login', userController.verifyUser, (req, res) => {
+  // what should happen here on successful log in?
+  res.redirect('../index.html');
+});
+
 module.exports = router;
