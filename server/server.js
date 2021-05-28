@@ -5,6 +5,7 @@ const userController = require('./userController');
 const apiRouter = require('./api');
 const cookieController = require('./cookieController');
 const sessionController = require('./sessionController');
+const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -13,24 +14,32 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/build', express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
 
-app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/login.html')));
-// app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/signup.html')));
+// run the cookie parser
+app.use(cookieParser());
 
+// landing page redirect to login or serve index if cookie exists
+app.get('/', cookieController.hasCookie, (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../index.html')));
+
+// direct to index if login is valid
 app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession, (req, res) => {
-  // what should happen here on successful log in?
   res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
 });
 
+// directs you to login page 
+app.get('/login', (req, res) => {
+  res.status(200).sendFile(path.resolve(__dirname, '../client/login.html'));
+});
+
+// directs you to signup page
 app.get('/signup', (req,res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../client/signup.html'));
 })
 
+// signup sends user input to database then directs to login page
 app.post('/signup', userController.createUser, (req, res) => {
   // what should happen here on successful log in?
   res.status(200).sendFile(path.resolve(__dirname, '../client/login.html'));
 });
-
-//  will be tested after login verification
 
 app.use('/api', apiRouter);
 

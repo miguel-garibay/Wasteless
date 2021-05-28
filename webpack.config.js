@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './client/index.js',
+  entry: ['./client/index.js'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
@@ -16,7 +16,7 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
-      },
+            },
       {
         test: /\.s?css/,
         use: ['style-loader', 'css-loader', 'sass-loader'],

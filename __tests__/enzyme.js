@@ -24,16 +24,16 @@ describe('React unit tests', () => {
         //     await server.close();
         // })
 
-        it('Should render text of Disposed List', () => {
+        xit('Should render text of Disposed List', () => {
             expect(wrapper.text()).toEqual('1. apples  ');
         })
-        it('Should be wrapped in a div', ()=>{
+        xit('Should be wrapped in a div', ()=>{
            expect(wrapper.type()).toEqual('div');
         })
-        it('Should be wrapped in <span>', ()=>{
+        xit('Should be wrapped in <span>', ()=>{
            expect(wrapper.find('span').hasClass('items')).toBe(true);
         })
-        it('Should have a nested div', ()=>{
+        xit('Should have a nested div', ()=>{
             expect(wrapper.find('div').at(1).hasClass('outcomesListBtnContainer')).toBe(true);
          })
       
@@ -48,9 +48,6 @@ describe('React unit tests', () => {
     // describe('DisposedList', () => {
 
     //   let wrapper;
-      
-
-
 //     })
 
 
