@@ -34,11 +34,11 @@ function DisposedList(props) {
             <DisposedItem
                 itemName={currState?.listOfDisposedItemNames[i]}
                 key={i}
-                type={currState?.listOfItems[i].type}
+                type={currState?.listOfDisposedItems[i].type}
                 id={i + 1}
                 foodId={currState?.listOfDisposedItemNames[i]}
                 setState={setState}
-                quantity={currState?.listOfItems[i].quantity}
+                quantity={currState?.listOfDisposedItems[i].quantity}
             />
         );
     }
