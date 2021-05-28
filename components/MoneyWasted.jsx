@@ -51,8 +51,8 @@ function MoneyWasted(props) {
   }, 0);
 
   return (
-    <div>
-    <h2 className="money">Money Wasted</h2>
+    <div className="tableContainer">
+    <h2 id="tableTitle">Money Wasted</h2>
     <table>
       <thead>
         <tr>
@@ -66,7 +66,7 @@ function MoneyWasted(props) {
         {wastedListArray}
       </tbody>
     </table>
-    <h2>Total Money Wasted: {totalMoneyWasted} </h2>
+    <h2 id="moneyWasted">Total Money Wasted: ${totalMoneyWasted} </h2>
     </div>
   )
 }

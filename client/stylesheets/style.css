@@ -1,25 +1,28 @@
+/* #FFCFC4 */
+/* title color: #A6D40D */
+/* 	#B85E00 */
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
-  color: #222725;
+  color: #1b8339; /* #B875EB; text */
 }
 
 h1, h3 {
   text-align: center;
-  color: #d121113;
+  color: #1b8339; 
 
 }
 
 h1 {
   font-size: 60px;
-  color: #F7F7F2;
+  color: #1e761e; 
 }
 
 body {
   width: 100%;
-  background-color: #a5a58d;
+  background-color: #d6f8d3;
 }
 
 .App {
@@ -31,7 +34,7 @@ body {
   display:flex;
   flex-direction: column;
   width:25%;
-  border: #6b705c 2px solid;
+  border: #B3E8C2 2px solid;
   border-radius: 10px;
   border-color: #F7F7F2;
   padding: 10px;
@@ -55,7 +58,7 @@ body {
   border-radius: 10px;
   padding: 14px 25px;
   text-align: center;
-  background-color: #fefae0;
+  background-color: #e7fce4;
   color: black;
   margin: 5px;
   box-shadow:5px 5px 10px #222725;
@@ -79,7 +82,7 @@ body {
   grid-template-columns: 3fr 1fr;
 }
 .addItemBtn {
-  background-color: #b7b7a4;
+  background-color: #1b8339;
   border: none;
   padding: 10px;
   text-align: center;
@@ -91,14 +94,15 @@ body {
   border-radius: 10px;
   box-shadow:5px 5px 10px #222725;
   border-radius: 10px;
+  color: whitesmoke;
 }
 
 .addItemBtn:hover{
-  background-color: #a4a994;
+  background-color: #608a6c;
 
 }
 .addItemBtn:active{
-  background-color: #6b705c;
+  background-color: #1b8339;
   box-shadow: inset 0px 0px 5px #c1c1c1;
 
 }
@@ -117,7 +121,7 @@ body {
 
 .ItemComponent {
   border: solid black 1px;
-  background-color: #fefae0;
+  background-color: #e7fce4;
   border-radius: 10px;
   padding: 10px 15px;
   text-align: center;
@@ -126,8 +130,9 @@ body {
 }
 
 .toBuyListBtn, .purchasedListBtn, .eatenListBtn{
-  background-color: #b7b7a4;
-  border: none;
+  background-color: white;
+  /* border-color: green; */
+  box-shadow: 3px green;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -139,15 +144,16 @@ body {
 }
 
 .toBuyListBtn:hover, .purchasedListBtn:hover, .eatenListBtn:hover{
-  background-color: #6b705c;
+  background-color: #608a6c;
 }
 
 .toBuyListBtnContainer, .purchasedListBtnContainer, .eatenListBtnContainer{
   float: right;
+  border-color: #1e761e;
 }
 
 button:active {
-  background-color: #6b705c;
+  /* background-color: #5f8d51; */
   box-shadow: inset 5px 5px 5px #c1c1c1;
 }
 
@@ -157,4 +163,156 @@ button:active {
 
 #dislikedBtn:focus{
   background-color: red;
+}
+
+#loginUsername {
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  border-radius: 10px;
+  color: white;
+}
+
+
+#loginPassword {
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  border-radius: 10px;
+  color: white;
+}
+
+#loginSubmit {
+  background-color: #1e761e;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  border-radius: 10px;
+  color: white;
+}
+
+#loginSubmit:hover{
+  background-color: #608a6c;
+}
+
+#loginHeader {
+  padding: 20px;
+  font-family: "Brush Script MT";
+  font-size: 50px;
+}
+
+#signUp {
+  font-family: "Brush Script MT";
+}
+
+#signUpUsername {
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  border-radius: 10px;
+  color: white;
+
+}
+
+#signUpPassword {
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  border-radius: 10px;
+  color: white;
+}
+
+#signUpSubmit {
+  background-color: #1e761e;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  border-radius: 10px;
+  color: white;
+}
+
+#signUpHeader {
+  padding: 20px;
+  font-family: "Brush Script MT";
+  font-size: 50px;
+  /* color: 	#bf00ff; */
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#tableTitle {
+  align-self: right;
+}
+
+table, thead {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+
+#moneyWasted {
+  color: red;
+  font-size: 30px;
+}
+
+th {
+  padding: 3px;
+  font-size: 16px;
+}
+
+td {
+  border: 1px 0px black;
+  padding: 8px 10px 5px 8px;
+  
 }

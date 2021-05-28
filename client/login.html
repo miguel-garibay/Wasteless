@@ -2,13 +2,14 @@
 <head>
   <meta charset="UTF-8">
   <title>WastlessV2Login</title>
+  <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
-<body>
+<body id="loginHeader">
   Login
   <form method="POST" action='/login'>
-    <input name="username" type="text" placeholder="username">username</input>
-    <input name="password" type="password" placeholder="password">password</input>
-    <input type='submit' value="login">
+    <input name="username" type="text" placeholder="username" id="loginUsername"></input>
+    <input name="password" type="password" placeholder="password" id="loginPassword"></input>
+    <input type='submit' value="login" id="loginSubmit">
   </form>
   <a href="http://localhost:3000/signup">Sign Up</a>
 </body>
