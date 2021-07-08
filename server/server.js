@@ -12,11 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
-// serve index.html on the route '/'
-
+// statically serve 
+app.use('/stylesheets', express.static(path.join(__dirname, '../client/stylesheets')));
 // run the cookie parser
 app.use(cookieParser());
 
+// serve index.html on the route '/'
 // landing page redirect to login or serve index if cookie exists
 app.get('/', cookieController.hasCookie, (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../index.html')));
 
